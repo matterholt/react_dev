@@ -32,33 +32,13 @@ function TableHeaders() {
   );
 }
 
-function RowsTable({ userInfo }) {
-  return (
-    <TableRow>
-      <TableCell>{userInfo.id}</TableCell>
-      <TableCell>{userInfo.name}</TableCell>
-      <TableCell>{userInfo.username}</TableCell>
-    </TableRow>
-  );
-}
-
-function BodyForTable({ userList }) {
-  const bodyUserInfo = userList.map((userInfo) => {
-    return <RowsTable userInfo={userInfo} />;
-  });
-
-  return <TableBody>{bodyUserInfo}</TableBody>;
-}
-
-export default function UserTables({ userList }) {
+export default function UserTables(props) {
   const classes = useStyles;
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHeaders />
-
-        {/* pass Props into the body at this below, pass props 2 times */}
-        <BodyForTable userList={userList} />
+        {props.children}
       </Table>
     </TableContainer>
   );

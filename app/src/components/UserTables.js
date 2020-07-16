@@ -9,6 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+// play with material UI styles later
 const useStyles = makeStyles({
   head: {
     backgroundColor: "gray",
@@ -42,8 +43,6 @@ function RowsTable({ userInfo }) {
 }
 
 function BodyForTable({ userList }) {
-  // map the row tables
-
   const bodyUserInfo = userList.map((userInfo) => {
     return <RowsTable userInfo={userInfo} />;
   });

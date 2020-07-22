@@ -16,21 +16,17 @@ import HooksReactTable from "./components/HooksReactTable";
 function App() {
   return (
     <div>
-      <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <div>
-            <h2>Autonomous</h2>
-          </div>
-          <div>
-            <p>Fetching data at the component that requires the data</p>
-          </div>
-        </AccordionSummary>
-        <AccordionDetails>
-          <UserAutonomous />
-        </AccordionDetails>
-      </Accordion>
+      <Container maxWidth="md">
+        <div>
+          <h2>Autonomous</h2>
+        </div>
+        <div>
+          <p>Fetching data at the component that requires the data</p>
+        </div>
 
-      <Container maxWidth="md"></Container>
+        <UserAutonomous />
+      </Container>
+
       <Container maxWidth="md">
         <h2>Higher Order Function</h2>
         <p>Fetching data at the parent component and pass down as props</p>

@@ -1,12 +1,10 @@
 import React from "react";
 import "./App.css";
 
+// Material UI
 import Container from "@material-ui/core/Container";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+// Components
 import TableConstruct from "./components/TableConstruct";
 import UserAutonomous from "./components/UserAutonomous";
 import HigherOrderComps from "./components/HigherOrderComps";

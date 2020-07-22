@@ -1,7 +1,11 @@
+import React from "react";
 import "./App.css";
+
 import Container from "@material-ui/core/Container";
-import React, { useState } from "react";
-import Switch from "@material-ui/core/Switch";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import TableConstruct from "./components/TableConstruct";
 import UserAutonomous from "./components/UserAutonomous";
@@ -10,39 +14,27 @@ import RenderProps from "./components/RenderProps";
 import HooksReactTable from "./components/HooksReactTable";
 
 function App() {
-  const [isVisible, setIsVisible] = useState({
-    autonomous: false,
-    higherOrder: false,
-    renderProp: false,
-    hooks: false,
-  });
-
-  const handleChange = (e) => {
-    setIsVisible({ ...isVisible, [e.target.name]: e.target.checked });
-  };
-
   return (
     <div>
-      <Container maxWidth="md">
-        <h2>Autonomous</h2>
-        <p>Fetching data at the component that requires the data</p>
-        <Switch
-          name="autonomous"
-          onChange={handleChange}
-          checked={isVisible.autonomous}
-        />
-        {isVisible.autonomous ? <UserAutonomous /> : null}
-      </Container>
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <div>
+            <h2>Autonomous</h2>
+          </div>
+          <div>
+            <p>Fetching data at the component that requires the data</p>
+          </div>
+        </AccordionSummary>
+        <AccordionDetails>
+          <UserAutonomous />
+        </AccordionDetails>
+      </Accordion>
+
+      <Container maxWidth="md"></Container>
       <Container maxWidth="md">
         <h2>Higher Order Function</h2>
         <p>Fetching data at the parent component and pass down as props</p>
-        <Switch
-          name="higherOrder"
-          onChange={handleChange}
-          checked={isVisible.higherOrder}
-        />
-
-        {isVisible.higherOrder ? <HigherOrderComps /> : null}
+        <HigherOrderComps />
       </Container>
 
       <Container maxWidth="md">
@@ -51,26 +43,13 @@ function App() {
           Pretty interesting concept, similar HOA but the rendering is pass to a
           separate comp
         </p>
-        <Switch
-          name="renderProp"
-          onChange={handleChange}
-          checked={isVisible.renderProp}
-        />
-
-        {isVisible.renderProp ? (
-          <RenderProps children={TableConstruct} />
-        ) : null}
+        <RenderProps children={TableConstruct} />
       </Container>
 
       <Container maxWidth="md">
         <h2>useHooks</h2>
         <p>worked with hooks for a wail and pretty standard</p>
-        <Switch
-          name="hooks"
-          onChange={handleChange}
-          checked={isVisible.hooks}
-        />
-        {isVisible.hooks ? <HooksReactTable /> : null}
+        <HooksReactTable />
       </Container>
 
       <Container maxWidth="md">

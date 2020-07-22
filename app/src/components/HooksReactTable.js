@@ -4,13 +4,25 @@ import UserTables from "./UserTables";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
+import { makeStyles } from "@material-ui/core/styles";
+
 import axios from "axios";
 
 const USER_SERVICE_URL = "https://jsonplaceholder.typicode.com/users";
 
-function RowsTable({ userInfo }) {
+const useStyles = makeStyles({
+  row: {
+    backgroundColor: "gray",
+    padding: "25px",
+  },
+  oddRow: {
+    backgroundColor: "lightgray",
+  },
+});
+
+function RowsTable({ userInfo, rowStyle }) {
   return (
-    <TableRow>
+    <TableRow className={rowStyle}>
       <TableCell>{userInfo.id}</TableCell>
       <TableCell>{userInfo.name}</TableCell>
       <TableCell>{userInfo.username}</TableCell>
@@ -19,8 +31,15 @@ function RowsTable({ userInfo }) {
 }
 
 function BodyForTable({ userList }) {
+  const classes = useStyles();
   const bodyUserInfo = userList.map((userInfo) => {
-    return <RowsTable userInfo={userInfo} />;
+    const oddRow = userInfo.id % 2;
+    return (
+      <RowsTable
+        userInfo={userInfo}
+        rowStyle={oddRow ? classes.row : classes.oddRow}
+      />
+    );
   });
 
   return <TableBody>{bodyUserInfo}</TableBody>;
@@ -44,11 +63,11 @@ export default function HooksReactTable() {
   }, []);
 
   return (
-    <>
+    <div>
       <UserTables>
         <BodyForTable userList={usersList.users} />
       </UserTables>
       <p>{usersList.isFetching ? "Fetching Users ... " : ""}</p>
-    </>
+    </div>
   );
 }

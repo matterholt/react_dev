@@ -16,7 +16,7 @@ class RenderProp extends Component {
 
   componentDidMount() {
     this.fetchUsers();
-    this.timer = setInterval(() => this.fetchUsers(), 5000);
+    // this.timer = setInterval(() => this.fetchUsers(), 5000);
   }
   componentWillUnmount() {
     clearInterval(this.timer);

@@ -40,7 +40,7 @@ class BodyForTable extends Component {
   // fire off the call to get the data after the component has been mounted
   componentDidMount() {
     this.fetchUsers();
-    this.timer = setInterval(() => this.fetchUsers(), 5000);
+    // this.timer = setInterval(() => this.fetchUsers(), 5000);
   }
 
   // remove timer when component goes away

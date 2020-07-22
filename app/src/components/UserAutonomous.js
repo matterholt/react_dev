@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import UserTables from "./UserTables";
 import axios from "axios";
 
+import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 
@@ -28,12 +29,11 @@ class BodyForTable extends Component {
 
   render() {
     return (
-      <>
+      <TableBody>
         {this.state.users.map((userInfo) => {
-          return <RowsTable userInfo={userInfo} />;
+          return <RowsTable userInfo={userInfo} key={userInfo.id} />;
         })}
-        <p>{this.state.isFetching ? "Fetching Users ... " : ""}</p>
-      </>
+      </TableBody>
     );
   }
 

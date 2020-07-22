@@ -17,7 +17,7 @@ function RowsTable({ userInfo }) {
 
 function BodyForTable({ userList }) {
   const bodyUserInfo = userList.map((userInfo) => {
-    return <RowsTable userInfo={userInfo} />;
+    return <RowsTable userInfo={userInfo} key={userInfo.id} />;
   });
 
   return <TableBody>{bodyUserInfo}</TableBody>;

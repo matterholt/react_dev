@@ -36,6 +36,7 @@ function BodyForTable({ userList }) {
     const oddRow = userInfo.id % 2;
     return (
       <RowsTable
+        key={userInfo.id}
         userInfo={userInfo}
         rowStyle={oddRow ? classes.row : classes.oddRow}
       />

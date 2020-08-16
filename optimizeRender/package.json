@@ -1,0 +1,24 @@
+{
+  "name": "reactTest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html",
+    "clean": "rimraf ./dist"
+  },
+  "keywords": [],
+  "author": "MAtterholt",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-nightly.368",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.10",
+    "typescript": "^3.9.7"
+  }
+}

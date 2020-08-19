@@ -5,7 +5,8 @@ import Switch from './components/Switch'
 function useToggle() {
     const [on, setOnState] = useState(true)
 
-    const toggle = () => setOnState(o => !o)
+    // const toggle = () => setOnState(o => !o)
+    const toggle = () => setOnState(!on)
     const setOff = () => setOnState(false)
     const setOn = () => setOnState(true)
 
@@ -20,8 +21,10 @@ function Toggle() {
 
 
     function handleSwitch() {
-        addToClickCount(clickCounter + 1)
-        toggle()
+        if (!limitNumClick) {
+            addToClickCount(clickCounter + 1)
+            toggle()
+        }
     }
 
     useEffect(() => { console.log({ on, clickCounter }) }, [on])

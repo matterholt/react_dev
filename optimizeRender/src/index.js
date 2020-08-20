@@ -1,14 +1,41 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { render } from "react-dom";
 import Switch from './components/Switch'
 
+const actionType = {
+    toggle: 'toggle',
+    on: 'on',
+    off: 'off'
+}
+
+function toggleReducer(state, action) {
+    switch (action.type) {
+        case actionType.toggle: {
+            return { on: !state.on }
+        }
+        case actionType.on: {
+            return { on: true }
+        }
+        case actionType.off: {
+            return { on: false }
+        }
+        default: {
+            throw new Error(`Unhandled type: ${action.type}`)
+        }
+    }
+}
+
+
 function useToggle() {
-    const [on, setOnState] = useState(true)
+    const [{ on }, dispatch] = useReducer(toggleReducer, { on: false })
+
 
     // const toggle = () => setOnState(o => !o)
-    const toggle = () => setOnState(!on)
-    const setOff = () => setOnState(false)
-    const setOn = () => setOnState(true)
+    const toggle = () => dispatch({
+        type: actionType.toggle
+    })
+    const setOff = () => dispatch({ type: actionType.on })
+    const setOn = () => dispatch({ type: actionType.off })
 
     return { on, setOff, setOn, toggle }
 }
@@ -17,14 +44,18 @@ function useToggle() {
 function Toggle() {
     const [clickCounter, addToClickCount] = useState(0)
     const limitNumClick = clickCounter >= 4
+
+    // 
     const { on, setOff, setOn, toggle } = useToggle()
 
 
+
+
     function handleSwitch() {
-        if (!limitNumClick) {
-            addToClickCount(clickCounter + 1)
-            toggle()
-        }
+
+        addToClickCount(clickCounter + 1)
+        toggle()
+
     }
 
     useEffect(() => { console.log({ on, clickCounter }) }, [on])

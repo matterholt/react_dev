@@ -1,0 +1,21 @@
+.main {
+  display: grid;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+  background-color: cadetblue;
+}
+
+.jokeContainer {
+  width: 550px;
+  color: white;
+}
+
+.action {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+
+}

@@ -6,15 +6,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-        if(document.cookie && document.cookie.includes('authed')){
-          window.location.href="/dashboard"
-        }
-        `,
-          }}
-        />
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>

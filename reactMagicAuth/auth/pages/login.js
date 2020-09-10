@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { userRouter, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { Magic } from "magic-sdk";
 
 export default function Login() {
   const [errorMg, setErrorMsg] = useState("");
   const [showDialog, setShowDialog] = useState(false);
+
   const router = useRouter();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,7 +28,7 @@ export default function Login() {
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
-        router.push("/dashboard");
+        router.push("/");
       } else if (res.status === 500) {
         alert("error on 500");
       } else {

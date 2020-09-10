@@ -1,0 +1,16 @@
+import { getSession } from "../../lib/iron";
+
+const fakeData = [
+  { nameFirst: "john", email: "john@test.com" },
+  { nameFirst: "sam", email: "sam@test.com" },
+  { nameFirst: "joe", email: "joe@test.com" },
+  { nameFirst: "Matterholt", email: "matterholt.dev@gmail.com" },
+];
+
+export default async function user(req, res) {
+  const session = await getSession(req);
+  const userEmail = session.email;
+  const userInfo = fakeData.filter((user) => userEmail === user.email);
+
+  res.status(200).json({ user: userInfo || null });
+}

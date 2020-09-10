@@ -14,6 +14,7 @@ playing around with authorization for web app
      4. If user does not supply the correct input -> try catch the error
 
    - backend side
+
      1. nextjs api login, and using the magic link tokens to save as cookie and allow to move to app
      2. set up magic on the backend
      3. we get the user detail by token, and in return we have the issuer, public address, user email.
@@ -21,7 +22,10 @@ playing around with authorization for web app
      5. save to Token Cookie , extracted to the lib folder
      6. create a cookie
 
-////////////////////////////////////////////////
+   - back to the client side
+     1. if return status is 200 then redirect to the dash or profile
+     2. if not should handle it some how the user knows that there was an error
+        ////////////////////////////////////////////////
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

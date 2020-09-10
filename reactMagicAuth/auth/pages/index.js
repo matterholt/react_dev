@@ -2,7 +2,10 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
+import useUser from "../hooks/useUser";
+
 export default function Home() {
+  const user = useUser();
   return (
     <div className={styles.container}>
       <Head>
@@ -11,10 +14,16 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Login</h1>
+        <h1>{user ? "Logged" : "Login"}</h1>
         <Link href="/login">
-          <a className="logButton">Login</a>
+          <a className="logButton">{user ? "Loged IN" : "Login"}</a>
         </Link>
+        {user && (
+          <>
+            <p>Currently logged in as:</p>
+            <pre>{JSON.stringify(user, null, 2)}</pre>
+          </>
+        )}
         <style jsx>
           {`
             .logButton {

@@ -5,7 +5,7 @@ import { Magic } from "magic-sdk";
 import useUser from "../hooks/useUser";
 
 export default function Login() {
-  useUser({ redirectTo: "/", redirectIfFound: true });
+  useUser({ redirectTo: "/dashboard", redirectIfFound: true });
   const [errorMg, setErrorMsg] = useState("");
   const [showDialog, setShowDialog] = useState(false);
 

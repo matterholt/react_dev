@@ -44,13 +44,11 @@ export default function Login() {
   return (
     <div>
       <h2>The Login Page</h2>
-
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input name="email" type="email" />
         <button>Log In</button>
       </form>
-      <div>{showDialog ? "got the keys " : "no key yet"}</div>
     </div>
   );
 }

@@ -4,6 +4,20 @@ import Link from "next/link";
 
 import useUser from "../hooks/useUser";
 
+const Logout = () => {
+  return (
+    <li>
+      <a href="/api/logout">Logout</a>
+    </li>
+  );
+};
+const Login = () => {
+  return (
+    <Link href="/login">
+      <a className="logButton">login</a>
+    </Link>
+  );
+};
 export default function Home() {
   const user = useUser();
   return (
@@ -15,9 +29,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1>{user ? "Logged" : "Login"}</h1>
-        <Link href="/login">
-          <a className="logButton">{user ? "Loged IN" : "Login"}</a>
-        </Link>
+        {user ? <Logout /> : <Login />}
         {user && (
           <>
             <p>Currently logged in as:</p>

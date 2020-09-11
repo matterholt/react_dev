@@ -25,7 +25,19 @@ playing around with authorization for web app
    - back to the client side
      1. if return status is 200 then redirect to the dash or profile
      2. if not should handle it some how the user knows that there was an error
-        ////////////////////////////////////////////////
+
+2. Getting user info and display info on the client
+
+   - user Hook
+   - getting Session cookie through the lib file iron.js
+   - getting using the hook to display user data
+
+3. Log out
+
+   - api for removing cookies
+   - get current cookie,
+
+////////////////////////////////////////////////
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

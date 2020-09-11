@@ -15,6 +15,14 @@ export function setTokenCookie(res, token) {
   res.setHeader("Set-cookie", cookie);
 }
 
+export function removeCookie(res) {
+  const cookie = serialize(TOKEN_NAME, "", {
+    maxAge: -1,
+    path: "/",
+  });
+  res.setHeader("Set-cookie", cookie);
+}
+
 export function parseCookies(req) {
   if (req.cookies) return req.cookies;
   const cookie = req.header?.cookie;

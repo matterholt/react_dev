@@ -42,6 +42,11 @@ export default function Home() {
             border-radius: 5px;
             box-shadow: 2px 4px 8px #c5c5c5;
           }
+          a {
+            background-color: gray;
+            margin: 10px;
+            padding: 15px 25px;
+          }
         `}
       </style>
     </Layout>

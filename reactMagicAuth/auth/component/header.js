@@ -21,6 +21,11 @@ const Header = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/dashboard">
+                  <a>Dashboard</a>
+                </Link>
+              </li>
+              <li>
                 <a href="/api/logout">Logout</a>
               </li>
             </>
@@ -58,6 +63,7 @@ const Header = () => {
         header {
           color: #fff;
           background-color: #333;
+          width: 100%;
         }
       `}</style>
     </header>

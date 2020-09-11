@@ -1,12 +1,8 @@
-import useAuth from "../hooks/useAuth";
-
+import UserLayout from "../component/userLayout";
 export default function Dashboard() {
-  const { user, loading } = useAuth();
-
   return (
-    <>
+    <UserLayout>
       <h2>Dashboard</h2>
-      {loading ? "loading.." : user.email}
-    </>
+    </UserLayout>
   );
 }

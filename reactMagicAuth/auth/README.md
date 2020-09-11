@@ -2,6 +2,43 @@
 
 playing around with authorization for web app
 
+## working through process
+
+1. AUTHORIZATION
+
+   - client side
+
+     1. submit request to login with magic link. which will send an email for user.
+     2. User clicked on link which will be a successful authentication
+     3. a decentralized identifier is return and used as a token
+     4. If user does not supply the correct input -> try catch the error
+
+   - backend side
+
+     1. nextjs api login, and using the magic link tokens to save as cookie and allow to move to app
+     2. set up magic on the backend
+     3. we get the user detail by token, and in return we have the issuer, public address, user email.
+     4. need to protect user data so will use IRON to encrypt the data, which will be sealed up in the lib folder
+     5. save to Token Cookie , extracted to the lib folder
+     6. create a cookie
+
+   - back to the client side
+     1. if return status is 200 then redirect to the dash or profile
+     2. if not should handle it some how the user knows that there was an error
+
+2. Getting user info and display info on the client
+
+   - user Hook
+   - getting Session cookie through the lib file iron.js
+   - getting using the hook to display user data
+
+3. Log out
+
+   - api for removing cookies
+   - get current cookie,
+
+////////////////////////////////////////////////
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

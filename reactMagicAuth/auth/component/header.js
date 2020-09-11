@@ -1,44 +1,67 @@
 import Link from "next/link";
 import useUser from "../hooks/useUser";
 
-export default function Header() {
+const Header = () => {
   const user = useUser();
-  return (
-    <div>
-      <h2>{JSON.stringify(user, null, 2)}</h2>
 
-      {user ? (
-        <>
+  return (
+    <header>
+      <nav>
+        <ul>
           <li>
-            <Link href="/profile">
-              <a>Profile</a>
+            <Link href="/">
+              <a>Home</a>
             </Link>
           </li>
-          <li>
-            <a href="/api/logout">Logout</a>
-          </li>
-        </>
-      ) : (
-        <li>
-          <Link href="/login">
-            <a>Login</a>
-          </Link>
-        </li>
-      )}
+          {user ? (
+            <>
+              <li>
+                <Link href="/profile">
+                  <a>Profile</a>
+                </Link>
+              </li>
+              <li>
+                <a href="/api/logout">Logout</a>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link href="/login">
+                <a>Login</a>
+              </Link>
+            </li>
+          )}
+        </ul>
+      </nav>
       <style jsx>{`
-        a {
-          color: gray;
-          text-decoration: none;
-          padding: 15px 25px;
-          margin-left: 26px;
+        nav {
+          max-width: 42rem;
+          margin: 0 auto;
+          padding: 0.2rem 1.25rem;
         }
-        a:hover {
-          color: black;
-          background-color: gray;
-          border-radius: 5px;
-          box-shadow: 5px 6px 8px light-gray;
+        ul {
+          display: flex;
+          list-style: none;
+          margin-left: 0;
+          padding-left: 0;
+        }
+        li {
+          margin-right: 1rem;
+        }
+        li:first-child {
+          margin-left: auto;
+        }
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+        header {
+          color: #fff;
+          background-color: #333;
         }
       `}</style>
-    </div>
+    </header>
   );
-}
+};
+
+export default Header;

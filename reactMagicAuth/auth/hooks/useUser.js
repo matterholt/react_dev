@@ -11,10 +11,10 @@ const fetcher = (url) =>
 
 export default function useUser({ redirectTo, redirectIfFound } = {}) {
   const { data, error } = useSWR("/api/user", fetcher);
-  console.log(data);
   const user = data?.user;
   const finished = Boolean(data);
   const hasUser = Boolean(user);
+
   useEffect(() => {
     if (!redirectTo || !finished) return;
     if (

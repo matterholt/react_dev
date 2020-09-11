@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { Magic } from "magic-sdk";
 
+import useUser from "../hooks/useUser";
+
 export default function Login() {
+  useUser({ redirectTo: "/", redirectIfFound: true });
   const [errorMg, setErrorMsg] = useState("");
   const [showDialog, setShowDialog] = useState(false);
 
@@ -28,7 +31,7 @@ export default function Login() {
         body: JSON.stringify(body),
       });
       if (res.status === 200) {
-        router.push("/");
+        router.push("/dashboard");
       } else if (res.status === 500) {
         alert("error on 500");
       } else {

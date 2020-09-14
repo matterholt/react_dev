@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Magic } from "magic-sdk";
 
@@ -8,8 +8,8 @@ export default function Login() {
   useUser({ redirectTo: "/dashboard", redirectIfFound: true });
   const [errorMg, setErrorMsg] = useState("");
   const [showDialog, setShowDialog] = useState(false);
-
   const router = useRouter();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const body = {
@@ -30,20 +30,20 @@ export default function Login() {
         },
         body: JSON.stringify(body),
       });
+
       if (res.status === 200) {
+        // update status for users,
         router.push("/dashboard");
       } else if (res.status === 500) {
         alert("error on 500");
       } else {
         throw new Error(await res.text());
       }
-      setShowDialog(true);
     } catch (error) {
       console.error("An unexpected error happened occurred:", error);
       setErrorMsg(error.message);
     }
   };
-
   return (
     <div>
       <h2>The Login Page</h2>

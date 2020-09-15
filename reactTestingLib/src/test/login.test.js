@@ -9,7 +9,5 @@ describe("user completion for user login", () => {
     expect(screen.getByText("Login")).toBeInTheDocument();
 
     expect(screen.getByLabelText("Username:")).toBeInTheDocument();
-
-    screen.debug();
   });
 });

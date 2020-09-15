@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+
 export default function Login() {
-  const [userName, setUserName] = useState("test");
+  const [userName, setUserName] = useState("");
   return (
     <form>
       <h2>Login</h2>

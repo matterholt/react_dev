@@ -27,7 +27,10 @@ export default function ApiCall() {
         <button type="button" onClick={handleFetch}>
           Fetch Stories
         </button>
-        <button onClick={() => setStories([])}>Clear</button>
+        {/* <button aria-label="getData" onClick={() => setStories([])}>
+          Clear
+        </button> */}
+
         <div>
           {errors && <span>Something went wrong..</span>}
           {isLoading && <span>Items are being loaded</span>}

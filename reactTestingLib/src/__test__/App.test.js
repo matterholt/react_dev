@@ -11,38 +11,38 @@ test("render app component", async () => {
   expect(await screen.findByText(/Sign in as/)).toBeInTheDocument();
 });
 
-test("app fireEvent", async () => {
-  //use userEvent over fireEvent
-  render(<App />);
-  await screen.findByText(/Sign in as/);
-  expect(screen.queryByText("Searches for JavaScript")).toBeNull();
-  screen.debug();
-  // fireEvent.change(screen.getByRole("textbox"), {
-  //   target: { value: "JavaScript" },
-  // });
+// test("app fireEvent", async () => {
+//   //use userEvent over fireEvent
+//   render(<App />);
+//   await screen.findByText(/Sign in as/);
+//   expect(screen.queryByText("Searches for JavaScript")).toBeNull();
+//   // screen.debug();
+//   // fireEvent.change(screen.getByRole("textbox"), {
+//   //   target: { value: "JavaScript" },
+//   // });
 
-  await userEvent.type(screen.getByRole("textbox"), "JavaScript");
-  //userEvent is closer to the user interactions, and has multiple way to capture event
-  expect(screen.getByText("Searches for JavaScript")).toBeInTheDocument();
-  screen.debug();
-});
+//   await userEvent.type(screen.getByRole("textbox"), "JavaScript");
+//   //userEvent is closer to the user interactions, and has multiple way to capture event
+//   expect(screen.getByText("Searches for JavaScript")).toBeInTheDocument();
+//   // screen.debug();
+// });
 
-function Search({ value, onChange, children }) {
-  return (
-    <div>
-      <label htmlFor="search">{children}</label>
-      <input id="search" type="text" value={value} onChange={onChange} />
-    </div>
-  );
-}
-describe("testing search in isolation", () => {
-  test("calls the onchange callback handler", () => {
-    const onChange = jest.fn();
+// function Search({ value, onChange, children }) {
+//   return (
+//     <div>
+//       <label htmlFor="search">{children}</label>
+//       <input id="search" type="text" value={value} onChange={onChange} />
+//     </div>
+//   );
+// }
+// describe("testing search in isolation", () => {
+//   test("calls the onchange callback handler", () => {
+//     const onChange = jest.fn();
 
-    render(
-      <Search value="" onChange={onChange}>
-        Search:
-      </Search>
-    );
-  });
-});
+//     render(
+//       <Search value="" onChange={onChange}>
+//         Search:
+//       </Search>
+//     );
+//   });
+// });

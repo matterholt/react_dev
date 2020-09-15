@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import ApiCall from "./components/ApiCall";
+
 const title = "Hello React";
 function getUser() {
   return Promise.resolve({ id: "1", name: "Matt" });
@@ -46,6 +48,7 @@ export default function App() {
 
           <p>Searches for {search ? search : "..."}</p>
         </div>
+        <ApiCall />
       </main>
     </div>
   );

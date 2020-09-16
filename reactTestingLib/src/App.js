@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 import ApiCall from "./components/ApiCall";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const title = "Hello React";
 function getUser() {
@@ -48,6 +49,7 @@ export default function App() {
           <p>Searches for {search ? search : "..."}</p>
         </div>
         <ApiCall />
+        <LoadingSpinner />
       </main>
     </div>
   );
